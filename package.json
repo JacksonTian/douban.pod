@@ -1,0 +1,16 @@
+{
+  "name": "douban_pod",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "douban.pod": "bin/douban_pod"
+  },
+  "author": "license",
+  "license": "MIT",
+  "dependencies": {
+    "douban.fm.node": "*",
+    "ipod": "*",
+    "optimist": "*"
+  }
+}

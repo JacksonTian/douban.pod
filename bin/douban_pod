@@ -1,0 +1,44 @@
+#!/usr/bin/env node
+var optimist = require('optimist');
+var argv = optimist.usage('Usage: $0 your@email.com your_password')
+  .demand(2)
+  .argv;
+
+var API = require('douban.fm.node');
+var IPod = require('ipod');
+
+var api = new API(argv._[0], argv._[1]);
+var play = function () {
+  api.getChannel(0, function (err, songs) {
+    if (err) {
+      console.log(err.message);
+      process.exit(1);
+    }
+    var list = songs.map(function (item) {
+      return item.url;
+    });
+    // 按列表顺序播放
+    var ipod = new IPod(list, {mode: 'order'});
+    ipod.play();
+    ipod.on('error', function (err) {
+      console.log(err.message);
+      console.log(err.stack);
+    });
+    ipod.on('playing', function () {
+      console.log('正在播放：%s', songs[ipod.currentIndex].title);
+    });
+    ipod.on('finish', function () {
+      console.log('播放完毕');
+      // 更新列表
+      play();
+    });
+  });
+};
+
+api.auth(function (err) {
+  if (err) {
+    console.log(err.message);
+    process.exit(1);
+  }
+  play();
+});
