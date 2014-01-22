@@ -1,5 +1,5 @@
 {
-  "name": "douban_pod",
+  "name": "douban.pod",
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "douban.fm.node": "*",
-    "ipod": "*",
+    "ipod": "0.2.2",
     "optimist": "*"
   }
 }
