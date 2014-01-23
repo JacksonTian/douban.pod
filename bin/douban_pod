@@ -3,28 +3,37 @@ var readline = require('readline');
 var API = require('douban.fm.node');
 var IPod = require('ipod');
 var linked = require('linked');
+var MuteStream = require('mute-stream');
 
 linked().use(function (ctx, next) {
   var rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
   });
-
-  rl.question("请输入登陆邮箱：\n", function (answer) {
+  rl.setPrompt("请输入登陆邮箱：\n");
+  rl.prompt();
+  rl.on('line', function (answer) {
     ctx.email = answer;
     // TODO: Log the answer in a database
     console.log("您的邮箱是: %s", answer);
+    rl.close();
     next();
   });
-  ctx.rl = rl;
 },
 function (ctx, next) {
-  ctx.rl.question("请输入您的密码：\n", function (answer) {
+  var ms = new MuteStream({replace: '*'});
+  ms.pipe(process.stdout);
+  var rl = readline.createInterface({
+    input: process.stdin,
+    output: ms
+  });
+  rl.setPrompt("请输入您的密码：\n");
+  rl.prompt();
+  ms.mute();
+  rl.on('line', function (answer) {
     ctx.password = answer;
-    // TODO: Log the answer in a database
     console.log("您的密码: ******");
-    ctx.rl.close();
-    delete ctx.rl;
+    rl.close();
     next();
   });
 },

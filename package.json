@@ -1,6 +1,6 @@
 {
   "name": "douban.pod",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "",
   "main": "index.js",
   "bin": {
@@ -11,6 +11,6 @@
   "dependencies": {
     "douban.fm.node": "*",
     "ipod": "0.2.2",
-    "linked": "0.0.1"
+    "linked": "0.1.1"
   }
 }
