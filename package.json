@@ -1,6 +1,6 @@
 {
   "name": "douban.pod",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "",
   "main": "index.js",
   "bin": {
@@ -10,7 +10,8 @@
   "license": "MIT",
   "dependencies": {
     "douban.fm.node": "*",
-    "ipod": "0.2.2",
-    "linked": "0.1.1"
+    "ipod": "0.2.4",
+    "linked": "0.1.1",
+    "mute-stream": "0.0.4"
   }
 }
