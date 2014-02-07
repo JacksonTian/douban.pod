@@ -1,7 +1,7 @@
 {
   "name": "douban.pod",
-  "version": "0.2.2",
-  "description": "",
+  "version": "0.2.3",
+  "description": "Listen douban.fm from CLI",
   "main": "index.js",
   "bin": {
     "douban.pod": "bin/douban_pod"
@@ -13,5 +13,21 @@
     "ipod": "0.2.4",
     "linked": "0.1.1",
     "mute-stream": "0.0.4"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/JacksonTian/douban.pod.git"
+  },
+  "keywords": [
+    "douban.fm",
+    "pod"
+  ],
+  "bugs": {
+    "url": "https://github.com/JacksonTian/douban.pod/issues"
+  },
+  "homepage": "https://github.com/JacksonTian/douban.pod"
 }

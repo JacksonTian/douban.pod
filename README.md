@@ -1,8 +1,15 @@
 douban.pod
 ==========
+Listen douban.fm from your CLI.
+
+## Usage
 
 ```bash
 $ npm install -g douban.pod
-$ douban.pod your_email your_password
 $ # enjoy it!
+$ douban_pod
 ```
+
+## License
+The MIT License  
+(See the MIT-License file)

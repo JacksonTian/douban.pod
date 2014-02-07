@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 var readline = require('readline');
 var API = require('douban.fm.node');
 var IPod = require('ipod');
@@ -6,6 +7,7 @@ var linked = require('linked');
 var MuteStream = require('mute-stream');
 
 linked().use(function (ctx, next) {
+  // email
   var rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
@@ -21,6 +23,7 @@ linked().use(function (ctx, next) {
   });
 },
 function (ctx, next) {
+  // passworld
   var ms = new MuteStream({replace: '*'});
   ms.pipe(process.stdout);
   var rl = readline.createInterface({
@@ -38,6 +41,7 @@ function (ctx, next) {
   });
 },
 function (ctx, next) {
+  // login
   console.log('登陆中...');
   var api = new API(ctx.email, ctx.password);
   api.auth(function (err) {
@@ -50,6 +54,7 @@ function (ctx, next) {
   ctx.api = api;
 },
 function (ctx, next) {
+  // play
   var api = ctx.api;
   var play = function () {
     api.getChannel(0, function (err, songs) {
