@@ -57,7 +57,7 @@ function (ctx, next) {
   // play
   var api = ctx.api;
   var play = function () {
-    api.getChannel(0, function (err, songs) {
+    api.getPlayList(0, function (err, songs) {
       if (err) {
         console.log(err.message);
         process.exit(1);

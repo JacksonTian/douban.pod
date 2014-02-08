@@ -1,6 +1,6 @@
 {
   "name": "douban.pod",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Listen douban.fm from CLI",
   "main": "index.js",
   "bin": {
@@ -9,7 +9,7 @@
   "author": "license",
   "license": "MIT",
   "dependencies": {
-    "douban.fm.node": "*",
+    "douban.fm.node": "0.2.0",
     "ipod": "0.2.4",
     "linked": "0.1.1",
     "mute-stream": "0.0.4"
